@@ -10,10 +10,16 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException{
-        
-
-
-        Scanner scanner = new Scanner(new File("casocohen60.txt"));
+        System.out.println("Programa da sorveteria maluca do meu primo:");
+        System.out.println();
+        for(int i = 10; i <= 60; i = i + 10){
+            System.out.println("Teste para " + i + " sabores");
+            rodaPrograma("casocohen" + i + ".txt");
+            System.out.println();
+        }
+    }
+    public static void rodaPrograma(String fileName) throws IOException{
+        Scanner scanner = new Scanner(new File(fileName));
         Diagraph diagraph = new Diagraph();
         while(scanner.hasNextLine()){
             String line = scanner.nextLine();
@@ -47,18 +53,5 @@ public class Main {
         System.out.println("Esperado:  " + numeroEsperadoDuasBolas);
         System.out.println("Resposta encontrada para 3 bolas:  " + diagraph.getCombinacoesTresSabores());
         System.out.println("Esperado:  " + numeroEsperadoTresBolas);
-        /* 
-        for(Diagraph.Node nodo : diagraph.nodos){
-            System.out.println("Nodo pai: " + nodo.sabor);
-            System.out.print("Filhos : ");
-            for(Diagraph.Node nodofilho : nodo.filhos){
-                System.out.print(nodofilho.sabor + " ");
-            }
-            System.out.println();
-            System.out.println();
-        } */
-
-        
-
     }
 }

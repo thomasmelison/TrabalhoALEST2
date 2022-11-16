@@ -41,7 +41,7 @@ public class Diagraph {
         nodoPai.filhos.add(nodoFilho);
     }
 
-    public boolean testePaternidadeRatinho(Node nodoPai, Node possivelFilho){
+    private boolean testePaternidadeRatinho(Node nodoPai, Node possivelFilho){
         for(Node nodo : nodoPai.filhos){
             if(nodo.equals(possivelFilho)){
                 return true;
@@ -66,7 +66,6 @@ public class Diagraph {
                 combinacoesTresSabores += nodoFilho.filhos.size();
             }
         }
-
         return combinacoesTresSabores;
     }
 
@@ -85,7 +84,6 @@ public class Diagraph {
             nodoPai.filhos.add(nodoFilho);
         }
         for(Node nodoNeto : nodoFilho.filhos){
-          
             checaFilhosRecursivo(nodoPai, nodoNeto);
         }
         return;
