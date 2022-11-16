@@ -13,7 +13,7 @@ public class Main {
         
 
 
-        Scanner scanner = new Scanner(new File("casocohen10.txt"));
+        Scanner scanner = new Scanner(new File("casocohen60.txt"));
         Diagraph diagraph = new Diagraph();
         while(scanner.hasNextLine()){
             String line = scanner.nextLine();
@@ -40,8 +40,13 @@ public class Main {
             // cria ligação
             diagraph.adicionaFilho(nodoPai, nodoFilho);
         }
-        scanner.nextLine();
         diagraph.adicionaSubFilhos();
+        int numeroEsperadoDuasBolas = scanner.nextInt();
+        int numeroEsperadoTresBolas = scanner.nextInt();
+        System.out.println("Resposta encontrada para 2 bolas:  " + diagraph.getCombinacoesDoisSabores());
+        System.out.println("Esperado:  " + numeroEsperadoDuasBolas);
+        System.out.println("Resposta encontrada para 3 bolas:  " + diagraph.getCombinacoesTresSabores());
+        System.out.println("Esperado:  " + numeroEsperadoTresBolas);
         /* 
         for(Diagraph.Node nodo : diagraph.nodos){
             System.out.println("Nodo pai: " + nodo.sabor);

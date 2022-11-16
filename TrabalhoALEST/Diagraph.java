@@ -50,21 +50,20 @@ public class Diagraph {
         
         return false;
     }
-    private int getCombinacoesDoisSabores(Node[] nodes){
+    public int getCombinacoesDoisSabores(){
         int combinacoesDoisSabores = 0;
-        for(int i = 0; i < nodes.length; i++){
-            combinacoesDoisSabores += nodes[i].filhos.size();
+        for(Node n : nodos){
+            combinacoesDoisSabores += n.filhos.size();
         }
-
         return combinacoesDoisSabores;
     }
 
-    private int getCombinacoesTresSabores(Node[] nodes){
+    public int getCombinacoesTresSabores(){
         int combinacoesTresSabores = 0;
-        for(int i = 0; i < nodes.length; i++){
-            ArrayList<Node> filhosNodo = nodes[i].filhos;
-            for(Node n : filhosNodo){
-                combinacoesTresSabores += n.filhos.size();
+        for(Node nodoPai: nodos){
+            ArrayList<Node> filhosNodo = nodoPai.filhos;
+            for(Node nodoFilho : filhosNodo){
+                combinacoesTresSabores += nodoFilho.filhos.size();
             }
         }
 
@@ -76,6 +75,7 @@ public class Diagraph {
             ArrayList<Diagraph.Node> filhosNodo = (ArrayList<Diagraph.Node>) nodoPai.filhos.clone();  
             for(Node nodoFilho : filhosNodo){  
                 checaFilhosRecursivo(nodoPai , nodoFilho);
+
             }
         }
     }
