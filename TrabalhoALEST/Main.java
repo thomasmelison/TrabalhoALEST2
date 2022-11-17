@@ -47,12 +47,27 @@ public class Main {
             // cria ligação
             diagraph.adicionaFilho(nodoPai, nodoFilho);
         }
+
+        long inicioExecucaoAdicionaSub = System.currentTimeMillis();
         diagraph.adicionaSubFilhos();
+        long finalExecucaoAdicionaSub = System.currentTimeMillis();
+        System.out.println("Tempo para adicionar subFilhos: " + (finalExecucaoAdicionaSub - inicioExecucaoAdicionaSub) + " milisegundos.");
+
         int numeroEsperadoDuasBolas = scanner.nextInt();
         int numeroEsperadoTresBolas = scanner.nextInt();
+
+        long inicio2bolas = System.currentTimeMillis();
         System.out.println("Resposta encontrada para 2 bolas:  " + diagraph.getCombinacoesDoisSabores());
+        long final2bolas = System.currentTimeMillis();
+        System.out.println("Tempo de execução: " + (final2bolas - inicio2bolas) + " milisegundos.");
+
         System.out.println("Esperado:  " + numeroEsperadoDuasBolas);
+
+        long inicio3bolas = System.currentTimeMillis();
         System.out.println("Resposta encontrada para 3 bolas:  " + diagraph.getCombinacoesTresSabores());
+        long final3bolas = System.currentTimeMillis();
+        System.out.println("Tempo de execução: " + (final3bolas - inicio3bolas) + " milisegundos.");
+
         System.out.println("Esperado:  " + numeroEsperadoTresBolas);
     }
 }
