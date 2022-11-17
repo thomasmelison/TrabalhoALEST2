@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
@@ -9,16 +10,16 @@ public class Main {
     
 
 
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException , FileNotFoundException{
         System.out.println("Programa da sorveteria maluca do meu primo:");
         System.out.println();
         for(int i = 10; i <= 60; i = i + 10){
             System.out.println("Teste para " + i + " sabores");
-            rodaPrograma("casocohen" + i + ".txt");
+            rodaPrograma("TrabalhoALEST/casoDeTeste/casocohen" + i + ".txt");
             System.out.println();
         }
     }
-    public static void rodaPrograma(String fileName) throws IOException{
+    public static void rodaPrograma(String fileName) throws IOException , FileNotFoundException{
         Scanner scanner = new Scanner(new File(fileName));
         Diagraph diagraph = new Diagraph();
         while(scanner.hasNextLine()){
